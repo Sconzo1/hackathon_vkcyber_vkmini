@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import './VKCyber.css';
-import dota2Photo from '../img/Dota2.png';
-import overwatchPhoto from '../img/Overwatch.png';
-import csgoPhoto from '../img/CSGO.png';
-import lolPhoto from '../img/LOL.png';
 
 import VKCyberGame from "./VKCyberGame"
 

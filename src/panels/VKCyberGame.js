@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Div, Subhead, SimpleCell} from '@vkontakte/vkui';
+import { Div, Subhead, SimpleCell } from '@vkontakte/vkui';
 
 import './VKCyber.css';
 
