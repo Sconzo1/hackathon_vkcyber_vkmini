@@ -16,6 +16,16 @@
     color: #ffffff;
 }
 
+.Cell__main {
+    color: #fff;
+}
+
+.itemwrapper {
+    background-color: #232323;
+    color: #ffffff;
+    border-radius: 15px;
+}
+
 .gameInfo {
     display: flex;
     justify-content: space-between;

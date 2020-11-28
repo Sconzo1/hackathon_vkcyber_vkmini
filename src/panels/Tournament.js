@@ -1,46 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Div, Subhead, SimpleCell, Avatar, Cell, PanelHeaderButton} from '@vkontakte/vkui';
-import Icon24Back from '@vkontakte/icons/dist/24/back';
+import {Div, Avatar, Cell} from '@vkontakte/vkui';
+import major from '../img/major.svg';
+import Icon24GiftOutline from '@vkontakte/icons/dist/24/gift_outline';
+import Icon24Play from '@vkontakte/icons/dist/24/play';
 import './VKCyber.css';
 
-import likeIcon from '../img/like_20.svg';
-import blueIcon from '../img/blue_20.svg';
-import playIcon from '../img/play_20.svg';
-import postIcon from '../img/post_20.svg';
-
-
 const Tournament = ({ name, img, like, post, play, blue }) => (
-		<Div>
-			<div className="gameInfo">
-				<div className="column">
-                <Cell
-                  before={<Avatar size={72} src = {blueIcon}/>}
-                  size="l"
-                  description="Друзья в Facebook"
-                  asideContent={ <React.Fragment>
-                    <PanelHeaderButton ><Icon24Back/></PanelHeaderButton>
-                    <PanelHeaderButton ><Icon24Back/></PanelHeaderButton>
-                  </React.Fragment>}
-                  
+		<Div> 
+            <Cell
+                before={<Avatar size={64} src = {major}/>}
+                asideContent={ <div style = {{display: "flex", flexOrientation: "row"}}><Icon24GiftOutline/><Icon24Play/></div>}
                 >
-                  The Kiev Major</Cell>
-				</div>
-				
-				{/* <div>
-                    <Subhead style = {{marginLeft: "20px"}} weight="semibold" >{name}</Subhead>
-				
-					<div className="column">
-						<div className="grid-container">
-							<SimpleCell disabled before={<img src = {likeIcon}/>}> {like} </SimpleCell>
-							<SimpleCell disabled before={<img src = {postIcon}/>}> {post} </SimpleCell>
-							<SimpleCell disabled before={<img src = {playIcon}/>}> {play}k.k </SimpleCell>
-							<SimpleCell disabled before={<img src = {blueIcon}/>}> {blue} </SimpleCell>	
-						</div>
-					</div>
-				</div> */}
-			</div>
-			
+                The Kiev Major
+            </Cell>
 		</Div>
 );
 

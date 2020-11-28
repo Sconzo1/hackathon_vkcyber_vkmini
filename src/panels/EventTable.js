@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {Panel, FixedLayout, Tabs, TabsItem, PanelHeaderButton} from '@vkontakte/vkui';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
@@ -18,16 +18,21 @@ const EventTable = ({ id, go, game, fetchedUser }) => (
             Dota 2
         </PanelHeader>
 
-        <FixedLayout vertical="top">
+        <FixedLayout vertical="bottom">
             <Tabs>
               <TabsItem
                 //selected={this.state.activeTab === 'groups'}
-                onClick={() => this.setState({ activeTab: 'groups' })}
-              >176 сообществ</TabsItem>
+                //onClick={() => this.setState({ activeTab: 'groups' })}
+                >
+                    Турниры
+                </TabsItem>
+              
               <TabsItem
                 //selected={this.state.activeTab === 'events'}
-                onClick={() => this.setState({ activeTab: 'events' })}
-              >9 событий</TabsItem>
+                //onClick={() => this.setState({ activeTab: 'events' })}
+                >
+                    Команды
+                </TabsItem>
             </Tabs>
           </FixedLayout>
 
