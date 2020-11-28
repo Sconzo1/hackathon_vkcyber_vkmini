@@ -1,41 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {Panel, FixedLayout, Tabs, TabsItem, PanelHeaderButton} from '@vkontakte/vkui';
+import {Panel, Tabs, TabsItem, PanelHeaderButton} from '@vkontakte/vkui';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import './VKCyber.css';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
-import games from "./games"
-import Tournament from "./Tournament"
-import major from '../img/major.svg';
-import bucharestMajor from "../img/bucharestMajor.svg"
+import TournamentList from './TournamentList'
+import TeamList from './TeamList';
 
 
-
-const EventTable = ({ id, go, game, fetchedUser }) =>{
+const EventTable = ({ id, go }) =>{
     const [activeTab, setActiveTab] = useState('tournaments');
 
     let component = null;
         switch(activeTab) {
+            
             case 'tournaments':
-                component = <div>
-                    <Tournament name="The Kiev Major" img={major} isOnline={true} isSoon={true} date="02" month="08"/>
-                    <Tournament name="The Bucharest Major" img={bucharestMajor} isOnline={false} isSoon={false} date="14" month="11"/>
-                </div>
-                
+                component = <TournamentList go= {go} />
                 break;
+            
             case 'teams':
-                component = <div>
-
-                </div>
+                component = <TeamList />
                 break;
-            default:
-                component = <div>
-                <Tournament name="The Kiev Major" img={major} isOnline={true} isSoon={true} date="02" month="08"/>
-                <Tournament name="The Bucharest Major" img={bucharestMajor} isOnline={false} isSoon={false} date="14" month="11"/>
-            </div>
             }
 
     return(
+
 	<Panel id={id}
         className="Panel">
         <PanelHeader separator={false}
@@ -43,9 +32,7 @@ const EventTable = ({ id, go, game, fetchedUser }) =>{
             {<Icon24Back/>}
         </PanelHeaderButton>}>
             Dota 2
-        </PanelHeader>
-
-        <FixedLayout vertical="bottom">
+        </PanelHeader>       
             <Tabs>
               <TabsItem
                 selected={activeTab === 'tournaments'}
@@ -61,16 +48,9 @@ const EventTable = ({ id, go, game, fetchedUser }) =>{
                     Команды
                 </TabsItem>
             </Tabs>
-          </FixedLayout>
+          
 
           {component}
-
-		{/* <Tournament name="The Kiev Major" img={major} isOnline={true} isSoon={true} date="02" month="08"/>
-        <Tournament name="The Bucharest Major" img={bucharestMajor} isOnline={false} isSoon={false} date="14" month="11"/> */}
-		
-      
-
-		
 	</Panel>
 );}
 

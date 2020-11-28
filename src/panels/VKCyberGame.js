@@ -10,9 +10,9 @@ import playIcon from '../img/play_20.svg';
 import postIcon from '../img/post_20.svg';
 
 
-const VKCyberGame = ({ name, img, like, post, play, blue }) => (
-		<Div>
-			<div className="gameInfo">
+const VKCyberGame = ({ name, img, like, post, play, blue, go}) => (
+		<Div onClick={go} data-to="eventTable">
+			<div className="gameInfo" >
 				<div className="column">
 					<img style={{marginTop: "8px"}} src={img}/>
 				</div>
