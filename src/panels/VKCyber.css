@@ -1,0 +1,43 @@
+.PanelHeader__in {
+    background-color: #2C2D30;
+}
+
+.PanelHeader__content {
+    color: whitesmoke;
+    font-weight: 100;
+}
+
+
+.Panel .Panel__in, .Panel::after {
+    background-color: #1E1C1E;
+}
+
+.SimpleCell__children {
+    color: #ffffff;
+}
+
+.gameInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #232323;
+    color: #ffffff;
+    border-radius: 15px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.grid-container {
+
+    display: grid;  
+    justify-content: space-between;
+    grid-template-rows: 32px 32px; 
+    grid-template-columns: 100px 100px; 
+  }
+
