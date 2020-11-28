@@ -11,7 +11,13 @@ import greenPlay from '../img/greenPlay.svg'
 import './VKCyber.css';
 
 
-const Tournament = ({ name, go, img, isOnline, isSoon, likers, followers, start, end, teamNum, prize}) => {
+const Tournament = ({ tournament, onActiveTournamentChanged, go}) => {
+
+    let img_src = null;
+    for (let key in tournament.img) {
+        img_src = tournament.img[key];
+    }
+
 
     let photos = [greenIcon, redStream]
     // if (friends.length !== 0){
@@ -22,30 +28,33 @@ const Tournament = ({ name, go, img, isOnline, isSoon, likers, followers, start,
     //      console.log(friends)
     // }
     
-
+   
     return(
-		<Div onClick={go} data-to="eventPage">
+        <Div data-to="eventPage"
+            onClick={(e) => {
+                go(e);
+                onActiveTournamentChanged(tournament)}}>
             <div className="itemwrapper">
             <Cell
                 before={
                     <div style = {{display: "grid", alignItems: "center", gridTemplateColumns: "24px 72px" }}>
                         <img src={goldStar}/>
-                        <Avatar size={64} src = {img}>
-                            {isSoon && <img style={{position: "absolute", right: "0", top: "0", marginTop: "8px"}} src = {gift}/>}
-                            {isOnline && <img style={{position: "absolute", right: "0", bottom: "0", marginBottom: "8px", marginRight: "3px"}} src = {redStream}/>}</Avatar>
+                        <Avatar size={64} src = {img_src}>
+                            {tournament.isSoon && <img style={{position: "absolute", right: "0", top: "0", marginTop: "8px"}} src = {gift}/>}
+                            {tournament.isOnline && <img style={{position: "absolute", right: "0", bottom: "0", marginBottom: "8px", marginRight: "3px"}} src = {redStream}/>}</Avatar>
                     </div>}
                 
                 asideContent={ 
                     <div className="stream-info-container">
-                        <SimpleCell disabled before={<img src = {likeIcon}/>}> {likers} </SimpleCell>
-						<SimpleCell disabled before={<img src = {greenPlay}/>}> {followers}k.k </SimpleCell>
+                        <SimpleCell disabled before={<img src = {likeIcon}/>}> {tournament.likers} </SimpleCell>
+						<SimpleCell disabled before={<img src = {greenPlay}/>}> {tournament.followers}k.k </SimpleCell>
                         </div>
                 }
                         
                         // <Title weight="semibold" >{date}</Title><Title weight="semibold" >{month}</Title></div>}
                 >
-                <Title id="title" level="2"  weight="regular">{name}</Title>
-                <Subhead id="subhead" weight="bold">TBD</Subhead>
+                <Title id="title" level="2"  weight="regular">{tournament.name}</Title>
+                <Subhead id="subhead" weight="bold">{tournament.Subhead}</Subhead>
             </Cell>
 
             <Separator style={{marginTop:"16px"}}/>
@@ -54,15 +63,15 @@ const Tournament = ({ name, go, img, isOnline, isSoon, likers, followers, start,
             <Title id="title" level="3"  weight="regular">Даты:</Title>
             <Title id="title" level="3"  weight="regular">Команды:</Title>
             <Title id="title" level="3"  weight="regular">Призовые:</Title>
-            <Subhead id="subhead" weight="regular">{start} - {end}</Subhead>
-            <Subhead id="subhead" weight="regular">{teamNum}</Subhead>
-            <Subhead id="subhead" weight="regular">$ {prize}</Subhead>
+            <Subhead id="subhead" weight="regular">{tournament.start} - {tournament.end}</Subhead>
+            <Subhead id="subhead" weight="regular">{tournament.teamNum}</Subhead>
+            <Subhead id="eventPage-prize-color" weight="regular">$ {tournament.prize}</Subhead>
             
             </div>
 
             
             <Group>
-                {isSoon && <UsersStack photos={photos.length !== 0 ? photos : []}>Иван и ещё 2 ваших друга смотрят прямой эфир</UsersStack>} 
+                {tournament.isSoon && <UsersStack photos={photos.length !== 0 ? photos : []}>Иван и ещё 2 ваших друга смотрят прямой эфир</UsersStack>} 
             </Group>
             </div>
 		</Div>

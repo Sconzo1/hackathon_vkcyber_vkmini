@@ -10,10 +10,10 @@ import russiaFlag from '../img/russia.png'
 import statDown from '../img/statDown.svg'
 import bucharestMajor from "../img/bucharestMajor.svg"
 
-const TeamList = ({id}) => (
+const TeamList = ({id, go}) => (
 	<div id = {id}>
-        <Team name="NAVI" teamImg={naviImg} countryImg={ukraineFlag} stats={2} isPresent={false}/>
-        <Team name="VirtusPro" teamImg={virtusImg} countryImg={russiaFlag} stats={-3} isPresent={true}/>
+        <Team name="NAVI" go={go} teamImg={naviImg} countryImg={ukraineFlag} stats={2} isPresent={false}/>
+        <Team name="VirtusPro" go={go} teamImg={virtusImg} countryImg={russiaFlag} stats={-3} isPresent={true}/>
     </div>
 );
 

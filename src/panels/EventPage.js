@@ -7,7 +7,7 @@ import Icon24Back from '@vkontakte/icons/dist/24/back';
 import gift from '../img/greenGift.svg';
 import fire from '../img/fire.svg';
 import goldStar from '../img/goldStar.svg';
-import ukraine from '../img/ukraine.png';
+
 
 import NAVI from '../img/NAVI.png';
 import OG from '../img/OG.png';
@@ -24,7 +24,12 @@ import share_outline_28 from '../img/share_outline_28.svg'
 
 
 
-const EventPage = ({id, go}) => {
+const EventPage = ({id, activeTournament, go}) => {
+    let img_src = null;
+    for (let key in activeTournament.countryFlag) {
+        img_src = activeTournament.countryFlag[key];
+    }
+
     return(
         <Panel id={id}
             className="Panel">
@@ -32,16 +37,16 @@ const EventPage = ({id, go}) => {
                 left={<PanelHeaderButton onClick={go} data-to="eventTable">
                 {<Icon24Back/>}
             </PanelHeaderButton>}>
-                The Kiev Major <img src={gift}/>
+                {activeTournament.name}<img src={gift}/>
             </PanelHeader>    
 
             <Div>
                 <div className="itemwrapper">
                     <div className="eventPage-prize-container"> 
                         <Title level="2" id="subhead">Призовой фонд</Title>
-                        <Subhead id="title">11.11-06.12</Subhead>
-                        <Title id="eventPage-prize-color">3 000 000 $</Title>
-                        <Subhead id="title"><img src={ukraine}/>&nbsp; г.&nbsp;Киев</Subhead>
+                            <Subhead id="title">{activeTournament.start}-{activeTournament.end}</Subhead>
+                            <Title id="eventPage-prize-color">{activeTournament.prize} $</Title>
+                        <Subhead id="title">{activeTournament.city}&nbsp;<img src={img_src}/></Subhead>
                     </div>
 
                 </div>

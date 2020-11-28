@@ -6,20 +6,23 @@ import './VKCyber.css';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import TournamentList from './TournamentList'
 import TeamList from './TeamList';
+import competitions from './competitions'
 
 
-const EventTable = ({ id, go }) =>{
+const EventTable = ({ id, activeGame, onActiveTournamentChanged, go }) =>{
     const [activeTab, setActiveTab] = useState('tournaments');
+
+    let tournaments = competitions.filter(c => c.gameId === activeGame.id)
 
     let component = null;
         switch(activeTab) {
             
             case 'tournaments':
-                component = <TournamentList go= {go} />
+                component = <TournamentList tournaments={tournaments} onActiveTournamentChanged={onActiveTournamentChanged} go={go} />
                 break;
             
             case 'teams':
-                component = <TeamList />
+                component = <TeamList go={go}/>
                 break;
             }
 
@@ -31,7 +34,7 @@ const EventTable = ({ id, go }) =>{
             left={<PanelHeaderButton onClick={go} data-to="vkcyber">
             {<Icon24Back/>}
         </PanelHeaderButton>}>
-            Dota 2
+            {activeGame.name}
         </PanelHeader>       
             <Tabs>
               <TabsItem

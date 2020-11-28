@@ -9,7 +9,7 @@ import statDown from '../img/statDown.svg'
 const Team = ({id, name, go, teamImg, countryImg, stats, isPresent}) => {
 
     return(
-    <Div id = {id} onClick={go} data-to="eventPage">
+    <Div id = {id} onClick={go} data-to="shop">
         <div className="itemwrapper">
         <Cell
             before={
