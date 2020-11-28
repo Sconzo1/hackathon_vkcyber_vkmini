@@ -1,19 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Div, Avatar, Cell} from '@vkontakte/vkui';
-import major from '../img/major.svg';
+import {Div, Avatar, Cell, Subhead, Title} from '@vkontakte/vkui';
+
+import redStream from '../img/redStream.svg';
+import greenIcon from '../img/greenIcon.svg';
+import playIcon from '../img/play_20.svg';
 import Icon24GiftOutline from '@vkontakte/icons/dist/24/gift_outline';
 import Icon24Play from '@vkontakte/icons/dist/24/play';
 import './VKCyber.css';
 
-const Tournament = ({ name, img, like, post, play, blue }) => (
+
+const Tournament = ({ name, img, isOnline, isSoon, date, month}) => (
 		<Div> 
+            <div className="itemwrapper">
             <Cell
-                before={<Avatar size={64} src = {major}/>}
-                asideContent={ <div style = {{display: "flex", flexOrientation: "row"}}><Icon24GiftOutline/><Icon24Play/></div>}
+                before={
+                    <div style = {{display: "grid", alignContent: "space-between", gridTemplateColumns: "72px" }}>
+                        <Avatar size={64} src = {img}>
+                            {isSoon && <img style={{position: "absolute", right: "0", top: "0", marginTop: "8px"}} src = {greenIcon}/>}
+                    {isOnline && <img style={{position: "absolute", right: "0", bottom: "0", marginBottom: "8px"}} src = {redStream}/>}</Avatar>
+                    </div>}
+                asideContent={ <div><Title weight="semibold" >{date}</Title><Title weight="semibold" >{month}</Title></div>}
                 >
-                The Kiev Major
+                {name}
             </Cell>
+            </div>            
 		</Div>
 );
 

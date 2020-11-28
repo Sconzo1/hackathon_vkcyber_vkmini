@@ -6,9 +6,36 @@ import './VKCyber.css';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import games from "./games"
 import Tournament from "./Tournament"
+import major from '../img/major.svg';
+import bucharestMajor from "../img/bucharestMajor.svg"
 
 
-const EventTable = ({ id, go, game, fetchedUser }) => (
+
+const EventTable = ({ id, go, game, fetchedUser }) =>{
+    const [activeTab, setActiveTab] = useState('tournaments');
+
+    let component = null;
+        switch(activeTab) {
+            case 'tournaments':
+                component = <div>
+                    <Tournament name="The Kiev Major" img={major} isOnline={true} isSoon={true} date="02" month="08"/>
+                    <Tournament name="The Bucharest Major" img={bucharestMajor} isOnline={false} isSoon={false} date="14" month="11"/>
+                </div>
+                
+                break;
+            case 'teams':
+                component = <div>
+
+                </div>
+                break;
+            default:
+                component = <div>
+                <Tournament name="The Kiev Major" img={major} isOnline={true} isSoon={true} date="02" month="08"/>
+                <Tournament name="The Bucharest Major" img={bucharestMajor} isOnline={false} isSoon={false} date="14" month="11"/>
+            </div>
+            }
+
+    return(
 	<Panel id={id}
         className="Panel">
         <PanelHeader separator={false}
@@ -21,29 +48,31 @@ const EventTable = ({ id, go, game, fetchedUser }) => (
         <FixedLayout vertical="bottom">
             <Tabs>
               <TabsItem
-                //selected={this.state.activeTab === 'groups'}
-                //onClick={() => this.setState({ activeTab: 'groups' })}
+                selected={activeTab === 'tournaments'}
+                onClick={() => setActiveTab('tournaments')}
                 >
                     Турниры
                 </TabsItem>
               
               <TabsItem
-                //selected={this.state.activeTab === 'events'}
-                //onClick={() => this.setState({ activeTab: 'events' })}
+                selected={activeTab === 'teams'}
+                onClick={() => setActiveTab('teams' )}
                 >
                     Команды
                 </TabsItem>
             </Tabs>
           </FixedLayout>
 
-		<Tournament/>
+          {component}
 
+		{/* <Tournament name="The Kiev Major" img={major} isOnline={true} isSoon={true} date="02" month="08"/>
+        <Tournament name="The Bucharest Major" img={bucharestMajor} isOnline={false} isSoon={false} date="14" month="11"/> */}
 		
       
 
 		
 	</Panel>
-);
+);}
 
 EventTable.propTypes = {
 	id: PropTypes.string.isRequired,
