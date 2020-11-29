@@ -13,10 +13,9 @@ const TeamList = ({id, go}) => {
     const [teams, setTeams] = useState([])
 
     useEffect(() => {
-        axios.post('http://hack/bin/Dota2/index.php', {v: "2.0", method: "getTeamList"})
+        axios.post('https://19579ebadc89.ngrok.io/bin/Dota2/index.php', {v: "2.0", method: "getTeamList"})
             .then(response => {
                 if (response.data.result.length !== 0) {
-                    console.log(response.data.result)
                     setTeams(response.data.result)
                 } else {
                     console.log(response.data.error.message ? response.data.error.message : "Error")

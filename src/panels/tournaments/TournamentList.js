@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import './VKCyber.css';
+import '../VKCyber.css';
 import Tournament from "./Tournament"
 import axios from "axios";
 
-const TournamentList = ({id, onActiveTournamentChanged, go}) => {
+const TournamentList = ({id, onActiveTournamentChanged, go, friends}) => {
 
     const [toursIntro, setToursIntro] = useState([])
 
     useEffect(() => {
-        axios.post('http://hack/bin/Dota2/index.php', {
+        axios.post('https://19579ebadc89.ngrok.io/bin/Dota2/index.php', {
             v: "2.0",
             method: "getTournamentIntro",
             params: {name: "The Kiev Major"}
@@ -30,7 +30,7 @@ const TournamentList = ({id, onActiveTournamentChanged, go}) => {
             {toursIntro.map((t, i) => {
                 return (<Tournament key={t.tournament} tournament={t}
                                     onActiveTournamentChanged={onActiveTournamentChanged}
-                                    go={go}/>
+                                    go={go} friends={friends}/>
                 )
             })}
         </div>

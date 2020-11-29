@@ -4,10 +4,10 @@ import {Panel, PanelHeaderButton, Tabs, TabsItem} from '@vkontakte/vkui';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import './VKCyber.css';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
-import TournamentList from './TournamentList'
+import TournamentList from './tournaments/TournamentList'
 import TeamList from './teams/TeamList';
 
-const EventTable = ({id, activeGame, onActiveTournamentChanged, go}) => {
+const EventTable = ({id, activeGame, onActiveTournamentChanged, go, friends}) => {
     const [activeTab, setActiveTab] = useState('tournaments');
 
     let component = null;
@@ -15,7 +15,7 @@ const EventTable = ({id, activeGame, onActiveTournamentChanged, go}) => {
 
         case 'tournaments':
             component = <TournamentList onActiveTournamentChanged={onActiveTournamentChanged}
-                                        go={go}/>
+                                        go={go} friends={friends}/>
             break;
 
         case 'teams':

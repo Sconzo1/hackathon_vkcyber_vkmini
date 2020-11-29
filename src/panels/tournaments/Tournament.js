@@ -1,22 +1,24 @@
 import React from 'react';
 import {Avatar, Cell, Div, Group, Separator, SimpleCell, Subhead, Title, UsersStack} from '@vkontakte/vkui';
-import redStream from '../img/redStream.svg';
-import greenIcon from '../img/greenIcon.svg';
-import gift from '../img/greenGift.svg';
-import likeIcon from '../img/like_20.svg';
-import goldStar from '../img/goldStar.svg'
-import greenPlay from '../img/greenPlay.svg'
-import major from '../img/major.svg';
-import './VKCyber.css';
+import redStream from '../../img/redStream.svg';
+import gift from '../../img/greenGift.svg';
+import likeIcon from '../../img/like_20.svg';
+import goldStar from '../../img/goldStar.svg'
+import greenPlay from '../../img/greenPlay.svg'
+import major from '../../img/major.svg';
+import '../VKCyber.css';
 
 
 function numberWithSpaces(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-const Tournament = ({tournament, onActiveTournamentChanged, go}) => {
+const Tournament = ({tournament, onActiveTournamentChanged, go, friends}) => {
 
-    let photos = [greenIcon, redStream]
+    let photos = []
+    if (friends.length !== 0) {
+        friends.forEach(v => photos.push(v.photo_200))
+    }
 
     return (
         <Div data-to="eventPage"
@@ -69,8 +71,8 @@ const Tournament = ({tournament, onActiveTournamentChanged, go}) => {
 
 
                 <Group>
-                    {tournament.isSoon &&
-                    <UsersStack photos={photos.length !== 0 ? photos : []}>Иван и ещё 2 ваших друга смотрят прямой
+                    {<UsersStack photos={photos.length !== 0 ? photos : []}>{friends[0].first_name} и ещё 2 ваших
+                        друга смотрят прямой
                         эфир</UsersStack>}
                 </Group>
             </div>

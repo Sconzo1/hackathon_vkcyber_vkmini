@@ -20,7 +20,7 @@ import VirtusPro from '../../img/VirtusPro.png'
 import Icon24LogoVk from '@vkontakte/icons/dist/24/logo_vk';
 
 
-const MerchBuyNow = ({id, go, fetchedUser, orderInfo}) => {
+const MerchBuyNow = ({id, go, mainUser, orderInfo}) => {
 
     let sum = parseInt(orderInfo.cost.slice(0, -2).replace(/\s/g, ''), 10)
     sum *= parseInt(orderInfo.count, 10)
@@ -47,9 +47,10 @@ const MerchBuyNow = ({id, go, fetchedUser, orderInfo}) => {
                     <Title level="2" weight="semibold" style={{marginBottom: 16, color: '#fff'}}>
                         Детали доставки
                     </Title>
-                    <Headline weight="semibold" style={{marginBottom: 8}}>Якубицкий Владислав, +79089548794</Headline>
-                    <Headline weight="semibold" style={{marginBottom: 8}}>ул. Усова 15Б</Headline>
-                    <Headline weight="semibold" style={{marginBottom: 8}}>Томская обл., г. Томск, 634034</Headline>
+                    <Headline weight="semibold" style={{marginBottom: 8}}>
+                        {mainUser.first_name} {mainUser.last_name}, +79998884422</Headline>
+                    <Headline weight="semibold" style={{marginBottom: 8}}>{mainUser.city.title}</Headline>
+                    <Headline weight="semibold" style={{marginBottom: 8}}>{mainUser.country.title}</Headline>
                 </Card>
 
                 <Card

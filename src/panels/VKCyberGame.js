@@ -15,8 +15,6 @@ const VKCyberGame = ({game, onActiveGameChanged, go}) => {
     for (let key in game.img) {
         img_src = game.img[key];
 	}
-	
-	let playNum = game.play
 
 
     return (
