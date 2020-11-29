@@ -4,7 +4,7 @@
 
 .PanelHeader__content {
     color: whitesmoke;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 
@@ -94,7 +94,7 @@
     padding: 12px;
     display: grid;
     grid-template-columns: 40% 40%;
-    grid-template-rows: 32px 32px;
+    grid-template-rows: 32px 24px;
     justify-content: space-evenly;
     text-align: center;
     align-items: center;
@@ -141,3 +141,21 @@
     padding-bottom: 12px;
 }
 
+.Subhead--w-medium {
+    font-weight: 400;
+    
+    font-size: 18px;
+}
+
+.SimpleCell--android {
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+
+.PanelHeader--android .PanelHeader__content {
+    font-size: 20px;
+    justify-content: center;
+}

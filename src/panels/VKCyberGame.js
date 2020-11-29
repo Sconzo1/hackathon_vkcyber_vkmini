@@ -14,7 +14,10 @@ const VKCyberGame = ({game, onActiveGameChanged, go}) => {
     let img_src = null;
     for (let key in game.img) {
         img_src = game.img[key];
-    }
+	}
+	
+	let playNum = game.play
+
 
     return (
         <Div onClick={(e) => {
@@ -31,10 +34,10 @@ const VKCyberGame = ({game, onActiveGameChanged, go}) => {
 
                     <div className="column">
                         <div className="grid-container">
-                            <SimpleCell disabled before={<img src={likeIcon} alt="Like"/>}> {game.like} </SimpleCell>
-                            <SimpleCell disabled before={<img src={postIcon} alt="Post"/>}> {game.post} </SimpleCell>
-                            <SimpleCell disabled before={<img src={playIcon} alt="Play"/>}> {game.play}k.k </SimpleCell>
-                            <SimpleCell disabled before={<img src={blueIcon} alt="Blue"/>}> {game.blue} </SimpleCell>
+                            <SimpleCell disabled before={<img src={likeIcon} alt="Like"/>}> &nbsp; {game.like} </SimpleCell>
+                            <SimpleCell disabled before={<img src={postIcon} alt="Post"/>}> &nbsp; {game.post} </SimpleCell>
+                            <SimpleCell disabled before={<img src={playIcon} alt="Play"/>}> &nbsp; {game.play > 1000 ? (game.play /1000).toFixed(1) + "k": game.play} </SimpleCell>
+                            <SimpleCell disabled before={<img src={blueIcon} alt="Blue"/>}> &nbsp; {game.blue} </SimpleCell>
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,10 @@ import major from '../img/major.svg';
 import './VKCyber.css';
 
 
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
 const Tournament = ({tournament, onActiveTournamentChanged, go}) => {
 
     let photos = [greenIcon, redStream]
@@ -46,8 +50,9 @@ const Tournament = ({tournament, onActiveTournamentChanged, go}) => {
                         </div>
                     }
                 >
-                    <Title id="title" level="2" weight="regular">{tournament.tournament}</Title>
-                    <Subhead id="subhead" weight="bold">{tournament.Subhead}</Subhead>
+
+                    <Title style={{width: "50%"}} id="title" level="2" weight="regular">{tournament.tournament}</Title>
+                    <Subhead id="subhead" weight="bold">{tournament.suphead}</Subhead>
                 </Cell>
 
                 <Separator style={{marginTop: "16px"}}/>
@@ -58,7 +63,7 @@ const Tournament = ({tournament, onActiveTournamentChanged, go}) => {
                     <Title id="title" level="3" weight="regular">Призовые:</Title>
                     <Subhead id="subhead" weight="regular">{tournament.start} - {tournament.end}</Subhead>
                     <Subhead id="subhead" weight="regular">{tournament.count}</Subhead>
-                    <Subhead id="eventPage-prize-color" weight="regular">$ {tournament.fund}</Subhead>
+                    <Subhead id="eventPage-prize-color" weight="regular">$ {numberWithSpaces(tournament.fund)}</Subhead>
 
                 </div>
 

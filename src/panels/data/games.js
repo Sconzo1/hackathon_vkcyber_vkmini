@@ -10,7 +10,7 @@ const games = [
         img: {dota2Photo},
         like: 194,
         post: 3,
-        play: 1.1,
+        play: 1100,
         blue: 10
 
     },
@@ -20,7 +20,7 @@ const games = [
         img: {overwatchPhoto},
         like: 113,
         post: 3,
-        play: 2.5,
+        play: 251,
         blue: 6
     },
     {
@@ -29,7 +29,7 @@ const games = [
         img: {csgoPhoto},
         like: 330,
         post: 7,
-        play: 0.1,
+        play: 1788,
         blue: 11
     },
     {
@@ -38,7 +38,7 @@ const games = [
         img: {lolPhoto},
         like: 94,
         post: 33,
-        play: 4.4,
+        play: 449,
         blue: 17
     }
 
