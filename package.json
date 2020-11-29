@@ -18,6 +18,8 @@
     "react-scripts": "^3.4.1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.1",
+    "@material-ui/styles": "^4.11.1",
     "@material/react-chips": "^0.15.0",
     "@vkontakte/icons": "^1.59.0",
     "@vkontakte/vk-bridge": "^2.3.0",

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import View from '@vkontakte/vkui/dist/components/View/View';
-import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
+// import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/Home';
@@ -15,21 +15,14 @@ import MerchBuyNow from './panels/MerchBuyNow';
 const App = () => {
 	const [activePanel, setActivePanel] = useState('shop');
 	const [fetchedUser, setUser] = useState(null);
-	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+	// const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	const [info, setInfo] = useState(null)
 	const [orderInfo, setOrderInfo] = useState(null)
 
 	useEffect(() => {
-		bridge.subscribe(({ detail: { type, data }}) => {
-			if (type === 'VKWebAppUpdateConfig') {
-				const schemeAttribute = document.createAttribute('scheme');
-				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
-				document.body.attributes.setNamedItem(schemeAttribute);
-			}
-		});
 
 		async function fetchData() {
-			const token = (await bridge.send("VKWebAppGetAuthToken", {"app_id": 7679116, "scope": "friends,status"})).access_token;
+			const token = (await bridge.send("VKWebAppGetAuthToken", {"app_id": 7679704, "scope": "friends,status"})).access_token;
 			const onlineFriends = await bridge.send("VKWebAppCallAPIMethod", {"method": "friends.getOnline", "request_id": "32test", "params": {"v":"5.126", "order": "random", "access_token":token}});
 			const friend_id = onlineFriends.response[0]
 			//const friend = bridge.send("VKWebAppCallAPIMethod", {"method": "users.get", "request_id": "getid", "params": {"user_ids": onlineFriends.user_ids, "v":"5.126", "access_token":token}}).response;
@@ -38,9 +31,9 @@ const App = () => {
 			//const user = await bridge.send('VKWebAppGetUserInfo');
 			const userFetched = await user.response[0]
 			console.log(userFetched)
-			
+
 			setUser(userFetched);
-			setPopout(null);
+			// setPopout(null);
 		}
 		fetchData();
 	}, []);
@@ -50,7 +43,8 @@ const App = () => {
 	};
 
 	return (
-		<View activePanel={activePanel} popout={popout}>
+		// <View activePanel={activePanel} popout={popout}>
+		<View activePanel={activePanel}>
 			<Home id='home' fetchedUser={fetchedUser} go={go} />
 			<Persik id='persik' go={go} />
 			<VKCyber id='vkcyber' fetchedUser={fetchedUser} go={go}/>
