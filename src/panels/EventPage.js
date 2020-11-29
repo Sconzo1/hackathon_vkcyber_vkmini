@@ -30,6 +30,9 @@ import peopleRedIcon from '../img/peopleRed.svg'
 import peopleBlueIcon from '../img/peopleBlue.svg'
 import share_outline_28 from '../img/share_outline_28.svg'
 
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
 
 const EventPage = ({id, activeTournament, go}) => {
     let img_src = null;
@@ -50,10 +53,10 @@ const EventPage = ({id, activeTournament, go}) => {
             <Div>
                 <div className="itemwrapper">
                     <div className="eventPage-prize-container">
-                        <Title level="2" id="subhead">Призовой фонд</Title>
+                        <Title level="3" id="subhead">Призовой фонд</Title>
                         <Subhead id="title">{activeTournament.start}-{activeTournament.end}</Subhead>
-                        <Title id="eventPage-prize-color">{activeTournament.prize} $</Title>
-                        <Subhead id="title">{activeTournament.city}&nbsp;<img src={img_src} alt="Img"/></Subhead>
+                        <Title id="eventPage-prize-color">{numberWithSpaces(activeTournament.prize)} $</Title>
+                        <Subhead id="title">{activeTournament.city}&nbsp;{img_src !== null ? <img src={img_src} alt="Img"/>: null}</Subhead>
                     </div>
 
                 </div>

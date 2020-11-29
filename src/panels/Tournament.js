@@ -9,6 +9,10 @@ import greenPlay from '../img/greenPlay.svg'
 import './VKCyber.css';
 
 
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
 const Tournament = ({tournament, onActiveTournamentChanged, go}) => {
 
     let img_src = null;
@@ -55,14 +59,13 @@ const Tournament = ({tournament, onActiveTournamentChanged, go}) => {
                         <div className="stream-info-container">
                             <SimpleCell disabled before={<img src={likeIcon} alt="Like"/>}> {tournament.likers} </SimpleCell>
                             <SimpleCell disabled
-                                        before={<img src={greenPlay} alt="Play"/>}> {tournament.followers}k.k </SimpleCell>
+                                        before={<img src={greenPlay} alt="Play"/>}> {tournament.followers > 1000 ? (tournament.followers /1000).toFixed(1) + "k": tournament.play} </SimpleCell>
                         </div>
                     }
-
-                    // <Title weight="semibold" >{date}</Title><Title weight="semibold" >{month}</Title></div>}
                 >
-                    <Title id="title" level="2" weight="regular">{tournament.name}</Title>
-                    <Subhead id="subhead" weight="bold">{tournament.Subhead}</Subhead>
+                   
+                    <Title style={{width: "50%"}} id="title" level="2" weight="regular">{tournament.name}</Title>
+                    <Subhead id="subhead" weight="bold">{tournament.suphead}</Subhead>
                 </Cell>
 
                 <Separator style={{marginTop: "16px"}}/>
@@ -73,7 +76,7 @@ const Tournament = ({tournament, onActiveTournamentChanged, go}) => {
                     <Title id="title" level="3" weight="regular">Призовые:</Title>
                     <Subhead id="subhead" weight="regular">{tournament.start} - {tournament.end}</Subhead>
                     <Subhead id="subhead" weight="regular">{tournament.teamNum}</Subhead>
-                    <Subhead id="eventPage-prize-color" weight="regular">$ {tournament.prize}</Subhead>
+                    <Subhead id="eventPage-prize-color" weight="regular">$ {numberWithSpaces(tournament.prize)}</Subhead>
 
                 </div>
 
