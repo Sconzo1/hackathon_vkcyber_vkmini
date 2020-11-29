@@ -1,18 +1,18 @@
-import dota2Photo from '../img/Dota2.png';
-import overwatchPhoto from '../img/Overwatch.png';
-import csgoPhoto from '../img/CSGO.png';
-import lolPhoto from '../img/LOL.png';
+import dota2Photo from '../../img/Dota2.png';
+import overwatchPhoto from '../../img/Overwatch.png';
+import csgoPhoto from '../../img/CSGO.png';
+import lolPhoto from '../../img/LOL.png';
 
 const games = [
     {
-       id: 1,
-       name: "Dota 2",
-       img: {dota2Photo},
-       like: 194,
-       post: 3,
-       play: 1.1,
-       blue: 10
-    
+        id: 1,
+        name: "Dota 2",
+        img: {dota2Photo},
+        like: 194,
+        post: 3,
+        play: 1.1,
+        blue: 10
+
     },
     {
         id: 2,

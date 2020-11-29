@@ -8,19 +8,19 @@ import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 
-const Home = ({ id, go, fetchedUser }) => (
-	<Panel id={id}>
-		<PanelHeader>Example</PanelHeader>
-		{fetchedUser &&
-		<Group title="User Data Fetched with VK Bridge">
-			<Cell
-				before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
-				description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
-			>
-				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
-			</Cell>
-		</Group>}
-  {/* {fetchedUser &&
+const Home = ({id, go, fetchedUser}) => (
+    <Panel id={id}>
+        <PanelHeader>Example</PanelHeader>
+        {fetchedUser &&
+        <Group title="User Data Fetched with VK Bridge">
+            <Cell
+                before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
+                description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
+            >
+                {`${fetchedUser.first_name} ${fetchedUser.last_name}`}
+            </Cell>
+        </Group>}
+        {/* {fetchedUser &&
 		<Group title="User Data Fetched with VK Bridge">
 			<Cell
 				before={fetchedUser.photo_200 ? <Avatar size={24} src={fetchedUser.photo_200}/> : null}
@@ -29,27 +29,27 @@ const Home = ({ id, go, fetchedUser }) => (
 				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
 			</Cell>
 		</Group>} */}
-		<Group title="Navigation Example">
-			<Div>
-				<Button size="xl" level="2" onClick={go} data-to="category">
-					Show me the Persik, please
-				</Button>
-			</Div>
-		</Group>
-	</Panel>
+        <Group title="Navigation Example">
+            <Div>
+                <Button size="xl" level="2" onClick={go} data-to="category">
+                    Show me the Persik, please
+                </Button>
+            </Div>
+        </Group>
+    </Panel>
 );
 
 Home.propTypes = {
-	id: PropTypes.string.isRequired,
-	go: PropTypes.func.isRequired,
-	fetchedUser: PropTypes.shape({
-		photo_200: PropTypes.string,
-		first_name: PropTypes.string,
-		last_name: PropTypes.string,
-		city: PropTypes.shape({
-			title: PropTypes.string,
-		}),
-	}),
+    id: PropTypes.string.isRequired,
+    go: PropTypes.func.isRequired,
+    fetchedUser: PropTypes.shape({
+        photo_200: PropTypes.string,
+        first_name: PropTypes.string,
+        last_name: PropTypes.string,
+        city: PropTypes.shape({
+            title: PropTypes.string,
+        }),
+    }),
 };
 
 export default Home;

@@ -6,39 +6,39 @@ import './VKCyber.css';
 
 import VKCyberGame from "./VKCyberGame"
 
-import games from "./games"
+import games from "./data/games"
 
 
-const VKCyber = ({ id, onActiveGameChanged, go }) => {
-	
-	return(
-	
-	<Panel id={id}
-        className="Panel">
-        <PanelHeader separator={false}>
-            VK cyber
-        </PanelHeader>
+const VKCyber = ({id, onActiveGameChanged, go}) => {
 
-		<VKCyberGame game={games[0]} onActiveGameChanged={onActiveGameChanged} go = {go}/>
-		<VKCyberGame game={games[1]} onActiveGameChanged={onActiveGameChanged} go = {go}/>
-		<VKCyberGame game={games[2]} onActiveGameChanged={onActiveGameChanged} go = {go}/>
-		<VKCyberGame game={games[3]} onActiveGameChanged={onActiveGameChanged} go = {go}/>
-		<VKCyberGame game={games[0]} onActiveGameChanged={onActiveGameChanged} go = {go}/>
-	    	
-	</Panel>
-);
-	}
+    return (
+
+        <Panel id={id}
+               className="Panel">
+            <PanelHeader separator={false}>
+                VK cyber
+            </PanelHeader>
+
+            <VKCyberGame game={games[0]} onActiveGameChanged={onActiveGameChanged} go={go}/>
+            <VKCyberGame game={games[1]} onActiveGameChanged={onActiveGameChanged} go={go}/>
+            <VKCyberGame game={games[2]} onActiveGameChanged={onActiveGameChanged} go={go}/>
+            <VKCyberGame game={games[3]} onActiveGameChanged={onActiveGameChanged} go={go}/>
+            <VKCyberGame game={games[0]} onActiveGameChanged={onActiveGameChanged} go={go}/>
+
+        </Panel>
+    );
+}
 VKCyber.propTypes = {
-	id: PropTypes.string.isRequired,
-	go: PropTypes.func.isRequired,
-	fetchedUser: PropTypes.shape({
-		photo_200: PropTypes.string,
-		first_name: PropTypes.string,
-		last_name: PropTypes.string,
-		city: PropTypes.shape({
-			title: PropTypes.string,
-		}),
-	}),
+    id: PropTypes.string.isRequired,
+    go: PropTypes.func.isRequired,
+    fetchedUser: PropTypes.shape({
+        photo_200: PropTypes.string,
+        first_name: PropTypes.string,
+        last_name: PropTypes.string,
+        city: PropTypes.shape({
+            title: PropTypes.string,
+        }),
+    }),
 };
 
 export default VKCyber;

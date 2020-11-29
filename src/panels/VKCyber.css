@@ -34,14 +34,13 @@
     border-radius: 15px;
 }
 
-#title{
+#title {
     color: #ffffff;
 }
 
-#subhead{
+#subhead {
     color: #99A2AD;
 }
-
 
 
 .gameInfo {
@@ -58,21 +57,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
+
 .grid-container {
 
-    display: grid;  
+    display: grid;
     justify-content: space-between;
-    grid-template-rows: 32px 32px; 
-    grid-template-columns: 100px 100px; 
-  }
+    grid-template-rows: 32px 32px;
+    grid-template-columns: 100px 100px;
+}
 
 .stream-info-container {
-    display: grid;  
+    display: grid;
     justify-content: space-between;
-    grid-template-rows: 24px 24px; 
-    grid-template-columns: 100px; 
+    grid-template-rows: 24px 24px;
+    grid-template-columns: 100px;
 }
 
 .Cell--android .Cell__indicator, .Cell--android .Cell__aside {
@@ -82,23 +82,21 @@
 
 .tournament-info-container {
     margin-top: 12px;
-    display: grid;  
+    display: grid;
     justify-content: space-evenly;
-    grid-template-columns: 25% 25% 25%; 
-    grid-template-rows: 24px 24px; 
+    grid-template-columns: 25% 25% 25%;
+    grid-template-rows: 24px 24px;
     text-align: center;
 }
-
-
 
 
 .eventPage-prize-container {
     padding: 12px;
     display: grid;
-    grid-template-columns: 40% 40%; 
-    grid-template-rows: 32px 32px; 
+    grid-template-columns: 40% 40%;
+    grid-template-rows: 32px 32px;
     justify-content: space-evenly;
-    text-align: center; 
+    text-align: center;
     align-items: center;
 
 }
@@ -107,17 +105,17 @@
     color: #0FC136;
 }
 
-#eventPage-match-info{
+#eventPage-match-info {
     background-color: #4A4A4A;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
 
-#eventPage-match-info-redTitle{
+#eventPage-match-info-redTitle {
     color: #FF4052;
 }
 
-#eventPage-match-info-teams-header{
+#eventPage-match-info-teams-header {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -126,16 +124,16 @@
     padding-bottom: 12px;
 }
 
-#eventPage-match-info-teams-body{
+#eventPage-match-info-teams-body {
     display: grid;
-    grid-template-columns: 20% auto 20% auto 20%;  
-    grid-template-rows: 24px; 
+    grid-template-columns: 20% auto 20% auto 20%;
+    grid-template-rows: 24px;
     justify-content: space-evenly;
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
     text-align: center;
-    
+
 }
 
 .Cell--android .Cell__indicator, .Cell--android .Cell__aside {

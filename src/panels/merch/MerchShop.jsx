@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
-import { Panel, PanelHeaderButton, PanelHeaderContent, Avatar, Div, HorizontalScroll, Button } from '@vkontakte/vkui';
+import React, {Fragment, useState} from 'react'
+import {Avatar, classNames, Div, HorizontalScroll, Panel, PanelHeaderButton, PanelHeaderContent} from '@vkontakte/vkui';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import "@material/react-chips/dist/chips.css";
 
-import './VKCyber.css';
+import '../VKCyber.css';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
-import React, {Fragment, useState} from 'react'
-import {Avatar, classNames, Div, HorizontalScroll, Panel, PanelHeaderBack, PanelHeaderContent} from '@vkontakte/vkui'
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader'
 import Chip from '@material-ui/core/Chip'
 import {makeStyles} from "@material-ui/styles"
-import VirtusPro from '../img/VirtusPro.png'
-
-import './VKCyber.css'
+import VirtusPro from '../../img/VirtusPro.png'
 
 import MerchList from './MerchList'
 
@@ -86,9 +81,9 @@ const MerchShop = ({id, go, setInfo}) => {
         <Panel id={id} className="Panel">
             <PanelHeader
                 separator={false}
-                left={<PanelHeaderButton onClick={() => go('eventTable')} >
-            {<Icon24Back/>}
-        </PanelHeaderButton>}>
+                left={<PanelHeaderButton onClick={() => go('eventTable')}>
+                    {<Icon24Back/>}
+                </PanelHeaderButton>}>
                 <PanelHeaderContent
                     style={{marginLeft: '24px'}}
                     before={<Avatar size={40} src={VirtusPro}/>}

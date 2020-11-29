@@ -1,14 +1,14 @@
 import React, {Fragment} from 'react';
 import {CardGrid} from '@vkontakte/vkui';
 
-import pic_1 from '../img/merch/1.png'
-import pic_2 from '../img/merch/2.png'
-import pic_3 from '../img/merch/3.png'
-import pic_4 from '../img/merch/4.png'
-import pic_5 from '../img/merch/5.png'
-import pic_6 from '../img/merch/6.png'
-import pic_7 from '../img/merch/7.png'
-import pic_8 from '../img/merch/8.png'
+import pic_1 from '../../img/merch/1.png'
+import pic_2 from '../../img/merch/2.png'
+import pic_3 from '../../img/merch/3.png'
+import pic_4 from '../../img/merch/4.png'
+import pic_5 from '../../img/merch/5.png'
+import pic_6 from '../../img/merch/6.png'
+import pic_7 from '../../img/merch/7.png'
+import pic_8 from '../../img/merch/8.png'
 
 import MerchCard from './MerchCard';
 import {Typography} from "@material-ui/core";
@@ -118,6 +118,8 @@ const MerchList = ({activeFilter, go, setInfo}) => {
         case 'accessories':
             break;
         case 'electronics':
+            break;
+        default:
             break;
     }
 

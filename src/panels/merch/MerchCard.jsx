@@ -15,7 +15,7 @@ const MerchCard = ({picture, name, cost, go, setInfo}) => {
             style={{background: '#232323', height: 260, textAlign: 'center'}}
             onClick={handleClick}
         >
-            <img src={picture} style={{marginTop: 18, maxHeight: 180, height: 'auto', width: 'auto'}}/>
+            <img src={picture} style={{marginTop: 18, maxHeight: 180, height: 'auto', width: 'auto'}} alt={name}/>
             <Text weight="regular" style={{color: '#B4B4B9'}}>{name}</Text>
             <Title level="3" weight="heavy" style={{color: '#fff', marginTop: 8}}>{cost}</Title>
         </Card>

@@ -2,10 +2,10 @@ import React, {useRef, useState} from 'react';
 import {Avatar, Button, Card, Div, Panel, PanelHeaderBack, PanelHeaderContent, Select, Title} from '@vkontakte/vkui';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 
-import './VKCyber.css';
+import '../VKCyber.css';
 
-import VirtusPro from '../img/VirtusPro.png'
-import hot from '../img/merch/HOT.png'
+import VirtusPro from '../../img/VirtusPro.png'
+import hot from '../../img/merch/HOT.png'
 import {Grid, Typography} from "@material-ui/core";
 
 
@@ -31,7 +31,7 @@ const MerchDescription = ({id, go, info, setOrderInfo}) => {
                 <Card size='m'
                       mode="shadow"
                       style={{background: '#232323', height: 400, textAlign: 'center'}}>
-                    <img src={info.picture.picture} style={{height: '80%', width: '80%', objectFit: 'cover'}}/>
+                    <img src={info.picture.picture} style={{height: '80%', width: '80%', objectFit: 'cover'}} alt="Preview"/>
                 </Card>
                 <Title level="2" weight="semibold"
                        style={{
@@ -40,7 +40,7 @@ const MerchDescription = ({id, go, info, setOrderInfo}) => {
                            marginLeft: 8,
                            marginRight: 8,
                            color: '#797b7a'
-                       }}>{info.name.name} <img src={hot}/></Title>
+                       }}>{info.name.name} <img src={hot} alt="HOT"/></Title>
                 <Grid container
                       justify="space-evenly"
                       alignItems="center"

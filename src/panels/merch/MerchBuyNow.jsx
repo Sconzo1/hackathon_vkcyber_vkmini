@@ -14,9 +14,9 @@ import {
 } from '@vkontakte/vkui';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 
-import './VKCyber.css';
+import '../VKCyber.css';
 
-import VirtusPro from '../img/VirtusPro.png'
+import VirtusPro from '../../img/VirtusPro.png'
 import Icon24LogoVk from '@vkontakte/icons/dist/24/logo_vk';
 
 
@@ -73,7 +73,7 @@ const MerchBuyNow = ({id, go, fetchedUser, orderInfo}) => {
                     mode="shadow"
                     style={{background: '#232323', padding: 8, color: '#B4B4B9'}}
                 >
-                    <img src={orderInfo.picture} style={{float: 'left', width: '40%'}}/>
+                    <img src={orderInfo.picture} style={{float: 'left', width: '40%'}} alt="Preview"/>
                     <div style={{display: 'flex', height: 150}}>
                         <div style={{marginTop: 'auto', marginBottom: 'auto'}}>
                             <Headline weight="semibold"
