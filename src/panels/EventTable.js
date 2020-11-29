@@ -5,19 +5,16 @@ import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader
 import './VKCyber.css';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import TournamentList from './TournamentList'
-import TeamList from './TeamList';
-import competitions from './data/competitions'
+import TeamList from './teams/TeamList';
 
 const EventTable = ({id, activeGame, onActiveTournamentChanged, go}) => {
     const [activeTab, setActiveTab] = useState('tournaments');
-
-    let tournaments = competitions.filter(c => c.gameId === activeGame.id)
 
     let component = null;
     switch (activeTab) {
 
         case 'tournaments':
-            component = <TournamentList tournaments={tournaments} onActiveTournamentChanged={onActiveTournamentChanged}
+            component = <TournamentList onActiveTournamentChanged={onActiveTournamentChanged}
                                         go={go}/>
             break;
 

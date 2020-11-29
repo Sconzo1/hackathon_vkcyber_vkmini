@@ -1,12 +1,12 @@
 import React from 'react';
 import {Avatar, Cell, Div, SimpleCell, Title} from '@vkontakte/vkui';
-import gift from '../img/greenGift.svg';
-import './VKCyber.css';
-import statUp from '../img/statUp.svg'
-import statDown from '../img/statDown.svg'
+import gift from '../../img/greenGift.svg';
+import '../VKCyber.css';
+import statUp from '../../img/statUp.svg'
+import statDown from '../../img/statDown.svg'
 
 
-const Team = ({id, name, go, teamImg, countryImg, stats, isPresent}) => {
+const Team = ({id, name, go, teamImg, countryImg, stats, isPresent, position}) => {
 
     return (
         <Div id={id} onClick={go} data-to="shop">
@@ -14,7 +14,7 @@ const Team = ({id, name, go, teamImg, countryImg, stats, isPresent}) => {
                 <Cell
                     before={
                         <div style={{display: "grid", alignItems: "center", gridTemplateColumns: "24px 72px"}}>
-                            <Title id="title" level="1" weight="regular">1.</Title>
+                            <Title id="title" level="1" weight="regular">{position}.</Title>
                             <div style={{margin: "12px 0px"}}>
                                 <Avatar size={64} src={teamImg}>
                                     {isPresent &&
@@ -30,7 +30,7 @@ const Team = ({id, name, go, teamImg, countryImg, stats, isPresent}) => {
                                 <SimpleCell disabled before={<img src={statUp} alt=""/>}> +{stats} </SimpleCell>}</div>}
                 >
 
-                    <Title id="title" level="1" weight="regular">{name} &nbsp; <img width="28px"
+                    <Title id="title" level="3" weight="regular">{name} &nbsp; <img width="28px"
                                                                                     src={countryImg} alt="Country"/></Title>
 
                 </Cell>
